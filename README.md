@@ -1,13 +1,9 @@
-retry(3) {
-  for (int i = 0; i < 10; i++) {
-    branches["branch${i}"] = {
-      node {
-        retry(3) {
-          checkout scm
+node () {
+   stage ('blah') {
+        def get_current_time_date = {
+            return 'hoge'
         }
-        sh 'make world'
-      }
+
+        echo get_current_time_date()
     }
-  }
 }
-parallel branches
